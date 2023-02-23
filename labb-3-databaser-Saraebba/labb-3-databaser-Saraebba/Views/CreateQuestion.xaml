@@ -1,0 +1,275 @@
+﻿<UserControl x:Class="labb_3_databaser_Saraebba.Views.CreateQuestion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:labb_3_databaser_Saraebba.Views"
+             xmlns:viewModels="clr-namespace:labb_3_databaser_Saraebba.ViewModels"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance viewModels:CreateQuestionViewModel}"
+             d:DesignHeight="550" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock
+                Grid.Row="0"
+                FontSize="16"
+                Text="All Questions" />
+                <Border
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="0,5,20,0"
+                BorderBrush="Black"
+                BorderThickness="1">
+                    <ListView
+                    MaxHeight="450"
+                    ItemsSource="{Binding QuestionCollection, UpdateSourceTrigger=PropertyChanged}"
+                    SelectedItem="{Binding SelectedQuestion, UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Statement}" Header="Question" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button
+                Grid.Row="0"
+                Margin="0,0,0,5"
+                Padding="2"
+                Command="{Binding NavigateToStartCommand}"
+                Content="Menu" />
+                <Border
+                Grid.Row="1"
+                Margin="5,10,5,0"
+                Padding="20"
+                BorderBrush="Black"
+                BorderThickness="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                        Grid.Row="0"
+                        FontSize="24"
+                        Text="Edit Question" />
+                        <Grid Grid.Row="1" Margin="0,25,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            Text="Statement:" />
+                            <TextBox Grid.Row="1" Text="{Binding Statement, UpdateSourceTrigger=PropertyChanged}" />
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0,25,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            Text="Alternative 1:" />
+                            <TextBox Grid.Row="1" Text="{Binding AnswerOne, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock
+                            Grid.Row="2"
+                            Margin="0,5,0,5"
+                            Text="Alternative 2:" />
+                            <TextBox Grid.Row="3" Text="{Binding AnswerTwo, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock
+                            Grid.Row="4"
+                            Margin="0,5,0,5"
+                            Text="Alternative 3:" />
+                            <TextBox Grid.Row="5" Text="{Binding AnswerThree, UpdateSourceTrigger=PropertyChanged}" />
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0,15,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                            Grid.Column="0"
+                            Margin="0,0,5,0"
+                            Text="Correct Answer" />
+                            <RadioButton
+                            Grid.Column="1"
+                            Margin="0,0,5,0"
+                            Content="Alt. 1"
+                            IsChecked="{Binding RadioButton1}" />
+                            <RadioButton
+                            Grid.Column="2"
+                            Margin="0,0,5,0"
+                            Content="Alt. 2"
+                            IsChecked="{Binding RadioButton2}" />
+                            <RadioButton
+                            Grid.Column="3"
+                            Margin="0,0,45,0"
+                            Content="Alt. 3"
+                            IsChecked="{Binding RadioButton3}" />
+                            <Button
+                            Grid.Column="4"
+                            Margin="0,0,5,0"
+                            Command="{Binding DeleteQuestionCommand}"
+                            Content="Delete" />
+                            <Button
+                            Grid.Column="5"
+                            Margin="0,0,5,0"
+                            Command="{Binding AddQuestionCommand}"
+                            Content="Add" />
+                            <Button
+                            Grid.Column="6"
+                            Command="{Binding UpdateQuestionCommand}"
+                            Content="Update" />
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    FontSize="16"
+                    Margin=" 0 0 0 5"
+                    Text="Category" />
+                <Border Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,0,20,0"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <ListView
+                            MaxHeight="450"
+                            ItemsSource="{Binding CategoryCollection, UpdateSourceTrigger=PropertyChanged}"
+                            SelectedItem="{Binding SelectedCategory, UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}" Header="Category" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    FontSize="16"
+                    Margin=" 0 0 0 5"
+                    Text="Selected Question Categories" />
+                <Border Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,0,20,0"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <ListView
+                        MaxHeight="450"
+                        ItemsSource="{Binding SelectedQuestionCategories, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding SelectedQuestionCategory, UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}" Header="Category" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Border
+                    Margin="0,25,0,0"
+                Padding="10"
+                BorderBrush="Black"
+                BorderThickness="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            Text="Category Name" />
+                            <TextBox Grid.Row="1" Text="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="0,15,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+                            Grid.Column="0"
+                            Margin="0,0,5,0"
+                            Command="{Binding DeleteCategoryCommand}"
+                            Content="Delete" />
+                            <Button
+                            Grid.Column="1"
+                            Margin="0,0,5,0"
+                            Command="{Binding AddCategoryCommand}"
+                            Content="Add" />
+                            <Button
+                            Grid.Column="2"
+                            Margin="0,0,5,0"
+                            Command="{Binding PushCategoryCommand}"
+                            Content="Add to Question" />
+                            <Button
+                                Grid.Column="3"
+                                Command="{Binding PullCategoryCommand}"
+                                Content="Delete from question" />
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

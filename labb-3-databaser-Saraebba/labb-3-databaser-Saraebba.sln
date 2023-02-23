@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "labb-3-databaser-Saraebba", "labb-3-databaser-Saraebba\labb-3-databaser-Saraebba.csproj", "{E012B037-70B4-4490-B9ED-E40916133637}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDataAccess", "MongoDataAccess\MongoDataAccess.csproj", "{16FE130F-D54C-43AB-9D56-7B8DB62C21E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A41C8A21-7C09-4FDA-956F-9A53B15EDAD4}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E012B037-70B4-4490-B9ED-E40916133637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E012B037-70B4-4490-B9ED-E40916133637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E012B037-70B4-4490-B9ED-E40916133637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E012B037-70B4-4490-B9ED-E40916133637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16FE130F-D54C-43AB-9D56-7B8DB62C21E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FE130F-D54C-43AB-9D56-7B8DB62C21E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FE130F-D54C-43AB-9D56-7B8DB62C21E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FE130F-D54C-43AB-9D56-7B8DB62C21E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38C14909-DF79-4DF1-B4B3-4D1B175A7690}
+	EndGlobalSection
+EndGlobal
